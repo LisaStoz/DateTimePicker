@@ -1,0 +1,61 @@
+.container {
+    margin-bottom: 200px;
+}
+
+
+.example1 {
+    width: 200px;
+}
+.example2 {
+    width: 60px;
+}
+.example5 {
+    width: 210px;
+}
+.example6 {
+    width: 200px;
+}
+.example7 {
+    width: 200px;
+}
+.example8 {
+    width: 200px;
+}
+
+.example9 {
+    width: 200px;
+}
+.example9-wrapper .datetimepicker-up span,
+.example9-wrapper .datetimepicker-down span {
+    border: 0;
+    height: auto;
+    width: auto;
+    margin: 0 auto;       
+}
+.example9-wrapper .datetimepicker-hour span,
+.example9-wrapper .datetimepicker-minute span {
+    left: 35%;
+}
+.example9-btn {
+    font-weight: bold;
+    color: #333;
+}
+.example9-btn:hover {    
+    color: #333;
+}
+
+.example10 {
+    width: 200px;
+}
+
+.example11 {
+    width: 200px;
+}
+
+.example12 {
+    width: 200px;
+}
+
+.example13 {
+    width: 200px;
+}

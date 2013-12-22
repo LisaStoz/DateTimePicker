@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Date Time Picker jQuery Plugin - Examples and docs</title>                              
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../date-time-picker/date-time-picker.css">                           
+        <link rel="stylesheet" href="assets/bootstrap.min.css">                           
+        <link rel="stylesheet" href="assets/style.css">                           
+        
+	</head>
+    
+    <body>
+        <div class="container">          
+            <h1>DateTimePicker plugin - usage examples and docs</h1>
+            <hr>
+            <p>This is a jQuery plugin which allows to add date and time picker functionality to the text field with just one line of JavaScript.</p>
+		
+		<p>Benefits</p>
+		<ul>
+			<li>funtionality can be initialised with one line of Javascript</li>
+            <li>mobile-like user interface which many users are familiar with</li>
+            <li>can be used as timepicker-only or datepicker-only</li>
+            <li>variuos date and time formats available</li>
+            <li>easy localisation</li>
+            <li>very simple day choice interface - incredibly useful when you are expecting date input from narrow date range</li>
+			<li>easily styleable</li>
+			<li>accessible - supports keyboard tabbing very well</li>
+		</ul>
+		
+		<p>This plugin relies on</p>
+		<ul>
+			<li>jQuery JavaScript library</li>
+			<li>Moment.js JavaScript library</li>
+		</ul>
+        <hr>        
+        <p class="lead">Getting started</p>
+        <ol>
+		<li>
+			<p>Include jQuery and Moment.js libraries. Both files are provided in the assets folder.</p>
+			<pre>&lt;script src=&quot;assets/jquery-1.9.0.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;assets/moment.min.js&quot;&gt;&lt;/script&gt;</pre>
+            <p>&nbsp;</p>
+		</li>
+		
+		<li>
+			<p>Include Date Time Picker plugin files.</p>
+			<pre>&lt;link href=&quot;date-time-picker/date-time-picker.css&quot; rel=&quot;stylesheet&quot; &gt;
+&lt;script src=&quot;date-time-picker/date-time-picker.js&quot;&gt;&lt;/script&gt;</pre>
+            <p>&nbsp;</p>
+		</li>
+		
+		<li>
+			<p>Create a text input field in the body section of your page, give it a preferred classname:</p>
+			<p>Example:</p>
+			<pre>&lt;input type=&quot;text&quot; name=&quot;some_field_name&quot; class=&quot;some_classname&quot; /&gt;</pre>
+			<input type="text" name="some_field_name" class="some_classname" />
+			<p>&nbsp;</p>
+		</li>
+		<li>
+			<p>In order to turn it into a date time picker, add a short script provided below.</p>
+			<pre>&lt;script&gt;
+    $(document).ready(function(){
+        $('.some_classname').dateTimePicker();
+    });
+&lt;/script&gt;</pre>
+
+			<p><strong>Please note:</strong> instead of some_classname use the classname you applied to your text input field.</p>
+			
+			
+		</li>
+	</ol>
+		
+        
+        <hr>
+            <p class="lead">Basic usage example - minimum code</p>
+            <p>Basic day choice and timepicker, date and time default to current</p>
+            <pre>$('.example1').dateTimePicker();</pre>            
+            <input type="text" value="" class="example1" name="datetime">
+            <hr>
+            <p class="lead">Timepicker only</p>
+            <pre>$('.example2').dateTimePicker({
+    'dayFormat': '' 
+});</pre>
+            <input type="text" value="" class="example2" name="datetime">
+            <hr>
+            <p class="lead">Datepicker only</p>
+            <pre>$('.example3').dateTimePicker({
+    'hourFormat': '',
+    'minuteFormat': ''
+});</pre>
+            <input type="text" value="" class="example3" name="datetime">
+            <hr>
+            <p class="lead">Changing date format</p>
+            <pre> $('.example4').dateTimePicker({
+    'dayFormat': 'D MMM, YY' 
+});</pre>
+            <input type="text" value="" class="example4" name="datetime">
+            <p>&nbsp;</p>
+            <p>Date formatting is reliant on Moment.js library, which provides lots of various formats. I have listed below
+                only the formats that are relevant to this plugin and tested by me. This set of formats should normally cover all formatting needs.</p>
+                <p>Possible year values:</p>
+                <ul>
+                    <li><strong>YYYY</strong> - full year, 4 digits, e.g. 2013</li>
+                    <li><strong>YY</strong> - last 2 digits, e.g. 13</li>
+                </ul>
+                
+                <p>Possible month values:</p>
+                <ul>
+                    <li><strong>MMMM</strong> - month as full word, e.g. January</li>
+                    <li><strong>MMM</strong> - month as shortened word, eg. Jan</li>
+                    <li><strong>MM</strong> - month as 2 digits, leading zero included where necessary, e.g. 01</li>
+                    <li><strong>M</strong> - month as 1 or 2 digits, no leading zeros, e.g. 1</li>
+                </ul>
+                
+                <p>Possible day values:</p>
+                <ul>
+                    <li><strong>DD</strong> - day as 2 digits, leading zero included where necessary, e.g. 01 </li>
+                    <li><strong>D</strong> - day as 1 or 2 digits, no leading zeros, e.g. 1</li>
+                </ul>
+            <hr>
+            <p class="lead">Adding AM/PM</p>
+            <pre> $('.example5').dateTimePicker({
+    'amFormat': 'A' 
+});</pre>
+            <input type="text" value="" class="example5" name="datetime">
+            <p>&nbsp;</p>
+            <p>You may set 'amFormat' to lowersace 'a', in order to get lowercase 'am/pm' as a result.</p>
+            <hr>
+            <p class="lead">Disallowing past</p>
+            <p>Disables 'down' arrows only when clicking them would cause past date/time to be selected</p>
+            <pre> $('.example6').dateTimePicker({
+    no-past': true
+});</pre>
+            <input type="text" value="" class="example6" name="datetime">
+            
+            <hr>
+            
+            <p class="lead">Changing step</p>
+            <p>You can override the incrementation/decrementation of each part, e.g. you may need to increase minutes by 15 on each click.</p>
+            <pre> $('.example7').dateTimePicker({
+    'minuteStep': 15,
+    'hourStep': 2,
+    'dayStep': 7
+});</pre>
+            <input type="text" value="" class="example7" name="datetime">
+            <hr>
+            
+            <p class="lead">Popup positioning</p>
+            <p>If you prefer the date/time popup to appear above the text field, you can configure this on initialisation.</p>
+            <pre> $('.example8').dateTimePicker({
+    'position': 'top'
+});</pre>
+            <input type="text" value="" class="example8" name="datetime">
+            <hr>
+            
+            
+            <p class="lead">Namespacing and styling</p>
+            <p>All elements of date time picker are namespaced with 'datetimepicker-' classname prefix, however, you may
+                prefer to add some custom classnames. See the reference of relevant options below:</p>
+                <ul>
+                    <li><strong>wrapperClass</strong> - add custom classname to the whole date time picker container</li>
+                    <li><strong>buttonClass</strong> - add custom classname to all buttons</li>
+                    <li><strong>buttonUp</strong> - replace up caret with custom HTML</li>
+                    <li><strong>buttonDown</strong> - replace down caret with custom HTML</li>
+                </ul>
+            <pre>$('.example9').dateTimePicker({
+    'wrapperClass': 'example9-wrapper',
+    'buttonClass': 'example9-btn',
+    'buttonUp': '&lt;span&gt;+&lt;/spa&gt;',
+    'buttonDown': '&lt;span&gt;&amp;#8211;&lt;/span&gt;'
+});</pre>
+            <input type="text" value="" class="example9" name="datetime">
+            <hr>
+            
+            
+            <p class="lead">Setting date/time different to now</p>
+            <p>By default current date/time is chosen, but you may change this by simply setting the value of your text field. The specified value should be in a valid format. Example:</p>
+            <pre>HTML:
+&lt;input type=&quot;text&quot; value=&quot;15 June 2012 23:30&quot; class=&quot;example10&quot; name=&quot;datetime&quot;&gt;
+
+SCRIPT:
+$('.example10').dateTimePicker();</pre>
+            <input type="text" value="15 June 2012 23:30" class="example10" name="datetime">
+            <hr>
+            
+            <p class="lead">Preventing automatic field population on load</p>
+            <p>You may need this option if you do not want any default value to be assigned to the date/time text field on page load.</p>
+            <pre>$('.example11').dateTimePicker({
+    'emptyOnLoad': true
+});</pre>
+            <input type="text" value="" class="example11" name="datetime">
+            
+            <hr>
+            <p class="lead">Clear button</p>
+            <p>You can remove the button completely or replace with custom HTML, possibly an image</p>
+            <pre>$('.example12').dateTimePicker({
+    'clearButton': ''
+});</pre>
+            <input type="text" value="" class="example12" name="datetime">
+            
+            <hr>
+            <p class="lead">Localisation</p>
+            <p>You can override the default English month long and short names with any other words, e.g. use German month manes</p>
+            <pre>$('.example13').dateTimePicker({
+    'monthNames': [
+        "Januar", "Februar", "März", "April", "Mai", "Juni", "Juli",
+        "August", "September", "Oktober", "November", "Dezember"
+    ],
+    'month-short-names': [
+        "Jan", "Feb", "März", "Apr", "Mai", "Juni",
+        "Juli", "Aug", "Sept", "Okt", "Nov", "Dez"
+    ]
+});</pre>
+            <!--
+            <input type="text" value="" class="example13" name="datetime">
+            -->
+            
+            
+        </div>
+        
+        
+        <!-- scripts -->
+        <script src="../assets/jquery-1.9.0.min.js"></script>
+        <script src="../assets/moment.min.js"></script>
+        <script src="../date-time-picker/date-time-picker.js"></script>
+               
+        <script>
+            $(document).ready(function(){
+                
+                /* basic example - minimum code */
+                $('.example1').dateTimePicker();
+                
+                /* timepicker only */
+                $('.example2').dateTimePicker({
+                    'dayFormat': '' 
+                });
+                
+                /* datepicker only */
+                $('.example3').dateTimePicker({
+                    'hourFormat': '',
+                    'minuteFormat': ''
+                });
+                
+                /* changing date format */
+                $('.example4').dateTimePicker({
+                    'dayFormat': 'D MMM, YY' 
+                });
+                
+                /* adding AM/PM */
+                $('.example5').dateTimePicker({
+                    'amFormat': 'A' 
+                });
+                
+                /* disallowing past */
+                $('.example6').dateTimePicker({
+                    'no-past': true
+                });
+                
+                /* changing step */
+                $('.example7').dateTimePicker({
+                    'minuteStep': 15,
+                    'hourStep': 2,
+                    'dayStep': 7
+                });
+                
+                /* popup positioning */                
+                $('.example8').dateTimePicker({
+                    'position': 'top'              
+                });
+                
+                /* namespacing and styling */                
+                $('.example9').dateTimePicker({
+                    'wrapperClass': 'example9-wrapper',
+                    'buttonClass': 'example9-btn',
+                    'buttonUp': '<span>+</span>',
+                    'buttonDown': '<span>&#8211;</span>'
+                });
+                
+                /* setting date/time different to now */
+                $('.example10').dateTimePicker();
+                
+                /* preventing automatic field population on load */
+                $('.example11').dateTimePicker({
+                    'emptyOnLoad': true
+                });
+                
+                /* clear button */
+                $('.example12').dateTimePicker({
+                    'clearButton': ''
+                });
+                
+                /* localisation */
+                /*
+                $('.example13').dateTimePicker({
+                    'monthNames': [
+                        "Januar", "Februar", "März", "April", "Mai", "Juni", "Juli",
+                        "August", "September", "Oktober", "November", "Dezember"
+                    ],
+                    'month-short-names': [
+                        "Jan", "Feb", "März", "Apr", "Mai", "Juni",
+                        "Juli", "Aug", "Sept", "Okt", "Nov", "Dez"
+                    ]
+                });
+                */
+            });
+        </script>
+    </body>
+
+</html>
