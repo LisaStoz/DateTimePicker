@@ -1,7 +1,7 @@
 Mobile-style DateTimePicker
 ===========================
 
-A jQuery plugin, aids date and time selecting. 
+A jQuery plugin, aids date and time selection. 
 
 Interface is similar to the one on mobile devices - date and time can be udjusted
 using 'up' (+) and 'down'(-) buttons. Date popup is compact, which is very convenient,
